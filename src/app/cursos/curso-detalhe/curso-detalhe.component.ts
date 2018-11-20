@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'curso-detalhe',
@@ -9,7 +9,16 @@ export class CursoDetalheComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  @Input() testePropriedade
 
+  ngOnInit() {
+    console.log('prop', this.testePropriedade);
+
+  }
+  @Output() mudouValor = new EventEmitter();
+
+onClink(){
+  console.log('vai mudar o valor');
+  this.mudouValor.emit({valor:'valor da mudanca'})
+}
 }
