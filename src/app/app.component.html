@@ -7,12 +7,12 @@
       >Logo</a
     >
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li>
+      <li routerLinkActive="active">
         <a [routerLink]="['/login']" routerLinkActive="router-link-active"
           >Login</a
         >
       </li>
-      <li>
+      <li routerLinkActive="active">
         <a [routerLink]="['/cursos']" routerLinkActive="router-link-active"
           >Cursos</a
         >
@@ -20,4 +20,20 @@
     </ul>
   </div>
 </nav>
-<div class="container"><router-outlet></router-outlet></div>
+<div class="container">
+  <p>Entre com o ID do curso {{ idCurso }}</p>
+  <input type="text" />
+  <div class="row">
+    <div class="input-field col s6">
+      <input
+        [(ngModel)]="idCurso"
+        id="first_name2"
+        type="text"
+        class="validate"
+      />
+      <label class="active" for="first_name2">First Name</label>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
