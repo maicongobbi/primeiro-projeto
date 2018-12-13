@@ -1,9 +1,8 @@
+import { MatCheckboxModule, MatButtonModule, MatCard, MatCardContent, MatCardActions } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CursosComponent } from './cursos.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
-
-
 
 
 @NgModule({
@@ -12,7 +11,8 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
     CursoDetalheComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCheckboxModule
   ],
 //CursoDetalheComponent não estou exportando esse componente,
 // logo, ele ficará visível apenas para esse módulo cursos.
