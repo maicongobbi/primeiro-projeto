@@ -1,3 +1,6 @@
+import { FormsModule } from '@angular/forms';
+import { CursosService } from './cursos.service';
+import { RouterModule } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -41,15 +44,24 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from "@angular/material";
+import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
+import { CursoFormComponent } from './curso-form/curso-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CursosRoutingModule } from './cursos.routing.module';
 
 @NgModule({
   declarations: [
     CursosComponent,
-    CursoDetalheComponent
+    CursoDetalheComponent,
+    CursoNaoEncontradoComponent,
+    CursoFormComponent
   ],
   imports: [
-    CommonModule,
-
+    CommonModule, //diretivas validações mais usadas no ng
+    RouterModule,
+    CursosRoutingModule,
+    FormsModule,
+    HttpClientModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -90,6 +102,7 @@ import {
 // logo, ele ficará visível apenas para esse módulo cursos.
   exports: [
     CursosComponent
-  ]
+  ],
+  providers:[CursosService]
 })
 export class CursosModule { }

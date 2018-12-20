@@ -1,3 +1,5 @@
+import { AlunosModule } from './alunos/alunos.module';
+import { CursosService } from "./cursos/cursos.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -50,18 +52,22 @@ import {
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
 import { ScrollingModule } from "@angular/cdk/scrolling";
-
+import { AlunosComponent } from "./alunos/alunos.component";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent],
   imports: [
     BrowserModule,
+    AlunosModule,
     AppRoutingModule,
     CursosModule,
     FormsModule,
-    routing,
+    //routing,
     BrowserAnimationsModule,
-
+    AppRoutingModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -138,7 +144,7 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     MatTreeModule,
     ScrollingModule
   ],
-  providers: [],
+  providers: [CursosService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

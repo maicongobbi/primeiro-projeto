@@ -13,8 +13,13 @@
         >
       </li>
       <li routerLinkActive="active">
-        <a [routerLink]="['/cursos']" routerLinkActive="router-link-active"
+        <a [routerLink]="['/cursos']" [queryParams]="{pagina:1}" routerLinkActive="router-link-active"
           >Cursos</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['curso', idCurso1?.value]" routerLinkActive="router-link-active"
+          >Curso com id</a
         >
       </li>
     </ul>
@@ -22,16 +27,16 @@
 </nav>
 <div class="container">
   <p>Entre com o ID do curso {{ idCurso }}</p>
-  <input type="text" />
+
   <div class="row">
     <div class="input-field col s6">
-      <input
+      <input #idCurso1
         [(ngModel)]="idCurso"
         id="first_name2"
         type="text"
         class="validate"
       />
-      <label class="active" for="first_name2">First Name</label>
+      <label class="active" for="first_name2">Id do curso</label>
     </div>
   </div>
 
