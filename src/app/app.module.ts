@@ -1,4 +1,4 @@
-import { AlunosModule } from './alunos/alunos.module';
+import { AuthService } from './login/auth.service';
 import { CursosService } from "./cursos/cursos.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -6,11 +6,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CursosModule } from "./cursos/cursos.module";
+
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { FormsModule } from "@angular/forms";
-import { routing } from "./app.routing";
 
 import {
   MatAutocompleteModule,
@@ -52,18 +51,15 @@ import {
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
 import { ScrollingModule } from "@angular/cdk/scrolling";
-import { AlunosComponent } from "./alunos/alunos.component";
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
-    AlunosModule,
+    // AlunosModule,
     AppRoutingModule,
-    CursosModule,
+    //CursosModule,
     FormsModule,
     //routing,
     BrowserAnimationsModule,
@@ -144,7 +140,7 @@ import { AlunosComponent } from "./alunos/alunos.component";
     MatTreeModule,
     ScrollingModule
   ],
-  providers: [CursosService],
+  providers: [CursosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

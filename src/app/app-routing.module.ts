@@ -1,25 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { CursosComponent } from './cursos/cursos.component';
-import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
-import { LoginComponent } from './login/login.component';
-import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso-nao-encontrado.component';
+import { CursosModule } from './cursos/cursos.module';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
 
-const routes: Routes = [ { path: "", component: HomeComponent }, //caminho padrão
-{ path: "cursos", component: CursosComponent },
-{ path: "curso/:id", component: CursoDetalheComponent },
-{ path: "login", component: LoginComponent },
-{ path: "naoEncontrado", component: CursoNaoEncontradoComponent }];
+import { CursoDetalheComponent } from "./cursos/curso-detalhe/curso-detalhe.component";
+import { LoginComponent } from "./login/login.component";
+import { CursoNaoEncontradoComponent } from "./cursos/curso-nao-encontrado/curso-nao-encontrado.component";
+
+const routes: Routes = [
+  { path: "", component: HomeComponent }, //caminho padrão - usa cursos pq lá no cursos module não precisara repetuir, usando apenas o ''
+  { path: "cursos", loadChildren: './cursos/cursos.module#CursosModule' },
+  { path: "alunos", loadChildren: './alunos/alunos.module#AlunosModule' },
+
+  { path: "login", component: LoginComponent },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
-
-
-
+export class AppRoutingModule {}
 
 /**
  *

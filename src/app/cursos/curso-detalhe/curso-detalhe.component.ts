@@ -7,8 +7,7 @@ import { Subscription } from "rxjs";
 
 @Component({
   selector: "curso-detalhe",
-  templateUrl: "./curso-detalhe.component.html",
-  styleUrls: ["./curso-detalhe.component.scss"]
+  templateUrl: "./curso-detalhe.component.html"
 })
 export class CursoDetalheComponent implements OnInit
 {
@@ -34,7 +33,7 @@ export class CursoDetalheComponent implements OnInit
         this.curso = this.cursosService.getCurso(this.id);
 
         /* if (this.curso == null){
-          this.router.navigate(['/naoEncontrado']); // navega para uma roda pré definida
+          this.router.navigate(['/cursos/naoEncontrado']); // navega para uma roda pré definida
           console.log('entrou no nao');
 
         } */

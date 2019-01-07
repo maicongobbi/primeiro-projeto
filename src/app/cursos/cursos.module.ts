@@ -1,7 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { CursosService } from './cursos.service';
 import { RouterModule } from '@angular/router';
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CursosComponent } from './cursos.component';
@@ -101,8 +100,10 @@ import { CursosRoutingModule } from './cursos.routing.module';
 //CursoDetalheComponent não estou exportando esse componente,
 // logo, ele ficará visível apenas para esse módulo cursos.
   exports: [
-    CursosComponent
+    CursosComponent,
+    CursoDetalheComponent
   ],
-  providers:[CursosService]
+  providers: [CursosService]
 })
+
 export class CursosModule { }

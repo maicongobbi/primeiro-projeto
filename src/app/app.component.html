@@ -1,4 +1,4 @@
-<nav>
+<nav *ngIf="mostrarMenu">
   <div class="nav-wrapper">
     <a
       [routerLink]="['/']"
@@ -17,16 +17,21 @@
           >Cursos</a
         >
       </li>
-      <li routerLinkActive="active">
+     <!--  <li routerLinkActive="active">
         <a [routerLink]="['curso', idCurso1?.value]" routerLinkActive="router-link-active"
           >Curso com id</a
+        >
+      </li> -->
+      <li routerLinkActive="active">
+        <a [routerLink]="['/alunos']" routerLinkActive="router-link-active"
+          >Alunos</a
         >
       </li>
     </ul>
   </div>
 </nav>
 <div class="container">
-  <p>Entre com o ID do curso {{ idCurso }}</p>
+  <!-- <p>Entre com o ID do curso {{ idCurso }}</p>
 
   <div class="row">
     <div class="input-field col s6">
@@ -38,7 +43,7 @@
       />
       <label class="active" for="first_name2">Id do curso</label>
     </div>
-  </div>
+  </div> -->
 
   <router-outlet></router-outlet>
 </div>
