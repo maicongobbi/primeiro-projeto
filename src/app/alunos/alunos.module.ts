@@ -1,3 +1,5 @@
+import { AlunosDeactivateGuard } from './../guards/alunos-deactivate.guard';
+import { AlunosGuard } from './../guards/alunos.guard';
 import { FormsModule } from '@angular/forms';
 import { AlunosComponent } from './alunos.component';
 import { NgModule } from '@angular/core';
@@ -20,8 +22,9 @@ import { AlunosService } from '../service/alunos.service';
       AlunoDetalheComponent
   ],
   providers: [
-      AlunosService,
-     // AlunosDeactivateGuard,
+    AlunosService,
+    AlunosGuard,
+     AlunosDeactivateGuard,
      // AlunoDetalheResolver
   ],
 })

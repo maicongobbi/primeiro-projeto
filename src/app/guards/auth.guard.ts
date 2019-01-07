@@ -12,6 +12,8 @@ export class AuthGuard implements CanActivate, CanLoad {
     private router: Router
   ) { }
 
+  //dentro deste método colocamos a lógica de autenticação que queremos
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -26,7 +28,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     if (this.authService.usuarioEstaAutenticado()){
       return true;
     }
-
+//se naõ estiver logado, será redirecionado para a tela de login
     this.router.navigate(['/login']);
 
     return false;

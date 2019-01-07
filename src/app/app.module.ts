@@ -1,3 +1,6 @@
+import { CursosGuard } from './guards/cursos.guard';
+
+import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './login/auth.service';
 import { CursosService } from "./cursos/cursos.service";
 import { BrowserModule } from "@angular/platform-browser";
@@ -140,7 +143,12 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     MatTreeModule,
     ScrollingModule
   ],
-  providers: [CursosService, AuthService],
+  providers: [
+    CursosService,
+    AuthService,
+    AuthGuard,
+    CursosGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

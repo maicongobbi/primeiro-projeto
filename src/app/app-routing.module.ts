@@ -6,13 +6,37 @@ import { HomeComponent } from "./home/home.component";
 import { CursoDetalheComponent } from "./cursos/curso-detalhe/curso-detalhe.component";
 import { LoginComponent } from "./login/login.component";
 import { CursoNaoEncontradoComponent } from "./cursos/curso-nao-encontrado/curso-nao-encontrado.component";
+import { AuthGuard } from './guards/auth.guard';
+import { CursosGuard } from './guards/cursos.guard';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent }, //caminho padrão - usa cursos pq lá no cursos module não precisara repetuir, usando apenas o ''
-  { path: "cursos", loadChildren: './cursos/cursos.module#CursosModule' },
-  { path: "alunos", loadChildren: './alunos/alunos.module#AlunosModule' },
+  {
+    path: "",
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  }, //caminho padrão - usa cursos pq lá no cursos module não precisara repetuir, usando apenas o ''
+  {
+    path: "cursos",
+    loadChildren: './cursos/cursos.module#CursosModule',
+    canActivate: [AuthGuard], //uso guarda de rota para aqueles que não quero que visualize as rotas
+    canActivateChild: [CursosGuard] //child verifica individualmente cada módulo se necessário
+    ,canLoad: [AuthGuard]
+  },
+  {
+    path: "alunos",
+    loadChildren: './alunos/alunos.module#AlunosModule',
+    canActivate: [AuthGuard],
+    //canActivateChild: [AlunosGuard]
+    canLoad: [AuthGuard]
 
-  { path: "login", component: LoginComponent },
+  },
+
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+    //{ path: '**', component: PaginaNaoEncontradaComponent } //, canActivate: [AuthGuard]}
 
 ];
 
