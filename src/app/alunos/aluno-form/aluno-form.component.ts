@@ -2,12 +2,13 @@ import { AlunosService } from 'src/app/service/alunos.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { IFormCanDeactivate } from 'src/app/guards/iform-candeactivate';
 
 @Component({
   selector: 'app-aluno-form',
   templateUrl: './aluno-form.component.html'
 })
-export class AlunoFormComponent implements OnInit {
+export class AlunoFormComponent implements OnInit, IFormCanDeactivate {
   aluno: any = {};
   inscricao: Subscription;
   private formMudou: boolean = false;
@@ -50,6 +51,7 @@ export class AlunoFormComponent implements OnInit {
 
   }
 
+  //esse nome tem que ser igual ao da interface para que seja usado na deactved de rotas
   podeDesativar(){
     return this.podeMudarRota();
   }

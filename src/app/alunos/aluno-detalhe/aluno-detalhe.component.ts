@@ -26,6 +26,7 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy
   ) { }
   ngOnInit()
   {
+    /*
     this.inscricao = this.route.params.subscribe(
       (params: any) => {
         let id = params['id'];
@@ -36,7 +37,9 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy
     console.log(this.aluno)
 
     console.log('ngOnInit: AlunoDetalheComponent');
+    */
 
+    //recebendo pelo resolver
     this.inscricao = this.route.data.subscribe(
       (info: { aluno: Aluno }) =>
       {

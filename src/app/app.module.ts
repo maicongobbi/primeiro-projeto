@@ -54,10 +54,11 @@ import {
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, PaginaNaoEncontradaComponent],
   imports: [
     BrowserModule,
     // AlunosModule,

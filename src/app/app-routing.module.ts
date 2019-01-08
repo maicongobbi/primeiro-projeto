@@ -8,19 +8,21 @@ import { LoginComponent } from "./login/login.component";
 import { CursoNaoEncontradoComponent } from "./cursos/curso-nao-encontrado/curso-nao-encontrado.component";
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.guard';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "home",
     component: HomeComponent,
     canActivate: [AuthGuard]
   }, //caminho padrão - usa cursos pq lá no cursos module não precisara repetuir, usando apenas o ''
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: "cursos",
     loadChildren: './cursos/cursos.module#CursosModule',
     canActivate: [AuthGuard], //uso guarda de rota para aqueles que não quero que visualize as rotas
     canActivateChild: [CursosGuard] //child verifica individualmente cada módulo se necessário
-    ,canLoad: [AuthGuard]
+    ,canLoad: [AuthGuard] //poderia ser outra classe AuthCanLoad por exemplo
   },
   {
     path: "alunos",
@@ -36,7 +38,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-    //{ path: '**', component: PaginaNaoEncontradaComponent } //, canActivate: [AuthGuard]}
+  { path: '**', component: PaginaNaoEncontradaComponent , canActivate: [AuthGuard]}
 
 ];
 

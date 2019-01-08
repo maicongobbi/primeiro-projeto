@@ -1,24 +1,16 @@
+import { Aluno } from './../alunos/aluno';
 import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AlunosService {
 
-  constructor() { }
-
-  private alunos: any[] = [
-    { id: 1, nome: "Aluno01", email: "aluno01@email" },
-    { id: 2, nome: "Aluno02", email: "aluno021@email" },
-    { id: 3, nome: "Aluno03", email: "aluno013@email" },
-    { id: 4, nome: "Aluno04", email: "aluno014@email" },
-    { id: 5, nome: "Aluno05", email: "aluno015@email" }
-
+  private alunos: Aluno[] = [
+    {id: 1, nome: 'Aluno 01', email: 'aluno01@email.com'},
+    {id: 2, nome: 'Aluno 02', email: 'aluno02@email.com'},
+    {id: 3, nome: 'Aluno 03', email: 'aluno03@email.com'}
   ];
-  getAlunos()
-  {
-    return this.alunos;
 
+  getAlunos(){
+    return this.alunos;
   }
 
   getAluno(id: number){
@@ -30,4 +22,7 @@ export class AlunosService {
     }
     return null;
   }
+
+  constructor() { }
+
 }
